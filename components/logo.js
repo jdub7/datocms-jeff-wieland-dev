@@ -8,6 +8,7 @@ export default function Logo(props) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 625 150"
       height="16"
+      mt={2}
       width="auto"
       {...props}
     >

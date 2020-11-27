@@ -3,7 +3,7 @@ import { Heading, SimpleGrid } from "@chakra-ui/react";
 export default function MoreStories({ heading, posts }) {
   return (
     <>
-      <Heading mb={10}>{heading}</Heading>
+      <Heading mt={10} mb={10}>{heading}</Heading>
       <SimpleGrid minChildWidth="300px" spacing="20px">
         {posts.map((post) => (
           <PostPreview
