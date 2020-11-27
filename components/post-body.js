@@ -5,7 +5,7 @@ import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
 export default function PostBody({ content }) {
   return (
     <Box
-      size="xl"
+      fontSize="xl"
       dangerouslySetInnerHTML={{ __html: content }}
     ></Box>
   );
