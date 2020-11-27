@@ -8,12 +8,17 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.0.1",
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
     "classnames": "2.2.6",
     "date-fns": "2.16.1",
+    "framer-motion": "^2.9.4",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-datocms": "1.4.5",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
     "tiny-json-http": "^7.3.0"
   },
   "devDependencies": {

@@ -1,9 +1,8 @@
 import Head from "next/head";
 import { renderMetaTags, useQuerySubscription } from "react-datocms";
 import Container from "../components/container";
-import HeroPost from "../components/hero-post";
-import Intro from "../components/intro";
 import Layout from "../components/layout";
+import Header from "../components/header"
 import MoreStories from "../components/more-stories";
 import { request } from "../lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
@@ -20,6 +19,12 @@ export async function getStaticProps({ preview }) {
         blog {
           seo: _seoMetaTags {
             ...metaTagsFragment
+          }
+        }
+        allHeaders {
+          menuItems {
+            link
+            label
           }
         }
         allPosts(orderBy: date_DESC, first: 20) {
@@ -65,30 +70,22 @@ export async function getStaticProps({ preview }) {
 
 export default function Index({ subscription }) {
   const {
-    data: { allPosts, site, blog },
+    data: { allPosts, allHeaders, site, blog },
   } = useQuerySubscription(subscription);
 
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
   const metaTags = blog.seo.concat(site.favicon);
 
+  const header = allHeaders[0];
+
   return (
     <>
       <Layout preview={subscription.preview}>
         <Head>{renderMetaTags(metaTags)}</Head>
+        <Header header={header}></Header>
         <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {morePosts.length > 0 && <MoreStories heading="Blog Posts" posts={morePosts} />}
         </Container>
       </Layout>
     </>

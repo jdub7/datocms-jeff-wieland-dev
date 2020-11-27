@@ -1,3 +1,18 @@
-export default function Container({ children }) {
-  return <div className="container mx-auto px-5">{children}</div>
+import { Box } from "@chakra-ui/react"
+
+export default function Container({ children, props }) {
+  return (
+    <Box
+      w="full"
+      pb="12"
+      pt="3"
+      mt="20"
+      mx="auto"
+      maxW="1400px"
+      px={{ base: "2", md: "6" }}
+      {...props}
+    >
+      {children}
+    </Box>
+  );
 }

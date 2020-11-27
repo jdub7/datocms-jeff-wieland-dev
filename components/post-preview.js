@@ -1,7 +1,15 @@
-import Avatar from '../components/avatar'
-import Date from '../components/date'
-import CoverImage from './cover-image'
-import Link from 'next/link'
+import Date from "../components/date";
+import CoverImage from "./cover-image";
+import Link from "next/link";
+import {
+  Box,
+  Heading,
+  Flex,
+  Badge,
+  Text,
+  AvatarGroup,
+  Avatar,
+} from "@chakra-ui/react";
 
 export default function PostPreview({
   title,
@@ -12,24 +20,31 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div>
-      <div className="mb-5">
-        <CoverImage
-          slug={slug}
-          title={title}
-          responsiveImage={coverImage.responsiveImage}
-        />
-      </div>
-      <h3 className="text-3xl mb-3 leading-snug">
+    <Box overflow="hidden" borderWidth="1px" borderRadius="4px">
+      <CoverImage
+        slug={slug}
+        title={title}
+        responsiveImage={coverImage.responsiveImage}
+      />
+      <Text mt={2} p={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a className="hover:underline">{title}</a>
         </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <Date dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
-    </div>
-  )
+      </Text>
+      <Flex p={2} align="center">
+        <Date dateString={date} />{" "}
+        <Badge ml={2} colorScheme="pink">
+          Plus
+        </Badge>
+      </Flex>
+
+      <Text mt={2} p={2} fontSize="md" lineHeight="short">
+        {excerpt}
+      </Text>
+      <Flex p={2} mr={5} mb={5} align="center" textAlign="right" float="right">
+        <Avatar src={author.picture.url} name={author.name} />
+        <Text ml={2} fontWeight="bold">{author.name}</Text>
+      </Flex>
+    </Box>
+  );
 }
