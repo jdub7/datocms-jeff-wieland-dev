@@ -22,7 +22,7 @@ export default function PostPreview({
 }) {
   return (
     <Box overflow="hidden" borderWidth="1px" borderRadius="4px" >
-      <Image layout="responsive" height={250} width={500} src={coverImage.url} alt={coverImage.alt}></Image>
+      <Image layout="intrinsic" height={250} width={500} src={coverImage.url} alt={coverImage.alt}></Image>
       <Text mt={2} p={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a className="hover:underline">{title}</a>
