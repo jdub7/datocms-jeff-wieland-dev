@@ -1,6 +1,7 @@
 import Date from "../components/date";
 import CoverImage from "./cover-image";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Box,
   Heading,
@@ -20,12 +21,8 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <Box overflow="hidden" borderWidth="1px" borderRadius="4px">
-      <CoverImage
-        slug={slug}
-        title={title}
-        responsiveImage={coverImage.responsiveImage}
-      />
+    <Box overflow="hidden" borderWidth="1px" borderRadius="4px" >
+      <Image layout="responsive" height={250} width={500} src={coverImage.url} alt={coverImage.alt}></Image>
       <Text mt={2} p={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a className="hover:underline">{title}</a>
@@ -43,7 +40,9 @@ export default function PostPreview({
       </Text>
       <Flex p={2} mr={5} mb={5} align="center" textAlign="right" float="right">
         <Avatar src={author.picture.url} name={author.name} />
-        <Text ml={2} fontWeight="bold">{author.name}</Text>
+        <Text ml={2} fontWeight="bold">
+          {author.name}
+        </Text>
       </Flex>
     </Box>
   );

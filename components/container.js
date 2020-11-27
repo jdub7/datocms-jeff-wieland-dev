@@ -9,7 +9,7 @@ export default function Container({ children, props }) {
       mt="20"
       mx="auto"
       maxW="1400px"
-      px={{ base: "2", md: "6" }}
+      px={{ base: "6", md: "6" }}
       {...props}
     >
       {children}
