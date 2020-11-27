@@ -14,6 +14,7 @@ import {
 
 export default function PostPreview({
   title,
+  categories,
   coverImage,
   date,
   excerpt,
@@ -23,28 +24,34 @@ export default function PostPreview({
   return (
     <Box overflow="hidden" borderWidth="1px" borderRadius="4px">
       <Image
-        layout="intrinsic"
+        layout="responsive"
         height={250}
         width={500}
         src={coverImage.url}
         alt={coverImage.alt}
       ></Image>
-      <Text mt={2} p={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
+      <Text mt={5} pl={5} pr={5} fontSize="xl" fontWeight="semibold" lineHeight="short">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-        {title}
+          {title}
         </Link>
       </Text>
-      <Flex p={2} align="center">
+      <Flex pl={5} pr={5} align="center">
         <Date dateString={date} />
-        <Badge ml={2} colorScheme="pink">
-          Plus
-        </Badge>
+        {categories &&
+          categories.map((category) => (
+            <Badge
+              ml={2}
+              colorScheme={category.colorScheme ? category.colorScheme : "pink"}
+            >
+              {category.name}
+            </Badge>
+          ))}
       </Flex>
 
-      <Text mt={2} p={2} fontSize="md" lineHeight="short">
+      <Text mt={2} p={5} fontSize="md" lineHeight="short">
         {excerpt}
       </Text>
-      <Flex p={2} mr={5} mb={5} align="center" textAlign="right" float="right">
+      <Flex p={5} mr={5} mb={5} align="center" textAlign="right" float="right">
         <Avatar src={author.picture.url} name={author.name} />
         <Text ml={2} fontWeight="bold">
           {author.name}

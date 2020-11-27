@@ -1,7 +1,12 @@
+import { Heading } from "@chakra-ui/react";
 export default function PostTitle({ children }) {
   return (
-    <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+    <Heading
+      size="3xl"
+      mb={{ base: 5, md: 10 }}
+      mt={{ base: 5, md: 10 }}
+    >
       {children}
-    </h1>
-  )
+    </Heading>
+  );
 }

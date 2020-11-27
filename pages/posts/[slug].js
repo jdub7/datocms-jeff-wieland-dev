@@ -9,7 +9,7 @@ import PostHeader from "../../components/post-header";
 import SectionSeparator from "../../components/section-separator";
 import { request } from "../../lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "../../lib/fragments";
-
+import { Divider } from "@chakra-ui/react"
 export async function getStaticPaths() {
   const data = await request({ query: `{ allPosts { slug } }` });
 
@@ -43,6 +43,8 @@ export async function getStaticProps({ params, preview = false }) {
             responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
               ...responsiveImageFragment
             }
+            url
+            alt
           }
           author {
             name
@@ -61,6 +63,8 @@ export async function getStaticProps({ params, preview = false }) {
             responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
               ...responsiveImageFragment
             }
+            url
+            alt
           }
           author {
             name
@@ -117,8 +121,10 @@ export default function Post({ subscription, preview }) {
           />
           <PostBody content={post.content} />
         </article>
-        <SectionSeparator />
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        <Divider mt={10} mb={10}></Divider>
+        {morePosts.length > 0 && (
+          <MoreStories heading="More Posts" posts={morePosts} />
+        )}
       </Container>
     </Layout>
   );
