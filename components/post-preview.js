@@ -29,8 +29,8 @@ export default function PostPreview({
     <Box overflow="hidden" borderWidth="1px" borderRadius="4px">
       <Image
         layout="responsive"
-        height={320}
-        width={640}
+        height={290}
+        width={580}
         src={coverImage.url}
         alt={coverImage.alt}
       ></Image>
