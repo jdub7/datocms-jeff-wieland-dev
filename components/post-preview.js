@@ -21,15 +21,21 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <Box overflow="hidden" borderWidth="1px" borderRadius="4px" >
-      <Image layout="intrinsic" height={250} width={500} src={coverImage.url} alt={coverImage.alt}></Image>
+    <Box overflow="hidden" borderWidth="1px" borderRadius="4px">
+      <Image
+        layout="intrinsic"
+        height={250}
+        width={500}
+        src={coverImage.url}
+        alt={coverImage.alt}
+      ></Image>
       <Text mt={2} p={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
+        {title}
         </Link>
       </Text>
       <Flex p={2} align="center">
-        <Date dateString={date} />{" "}
+        <Date dateString={date} />
         <Badge ml={2} colorScheme="pink">
           Plus
         </Badge>

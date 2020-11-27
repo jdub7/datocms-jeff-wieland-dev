@@ -36,7 +36,7 @@ export async function getStaticProps({ preview }) {
             responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
               ...responsiveImageFragment
             }
-            url
+            url(imgixParams: {fm: jpg, fit: crop, crop: focalpoint})
             alt
           }
           author {
