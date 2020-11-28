@@ -15,10 +15,12 @@
     "date-fns": "2.16.1",
     "framer-motion": "^2.9.4",
     "next": "10.0.3",
+    "prism-react-renderer": "^1.1.1",
     "react": "17.0.1",
     "react-datocms": "1.4.5",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
+    "react-markdown": "^5.0.3",
     "tiny-json-http": "^7.3.0"
   },
   "devDependencies": {

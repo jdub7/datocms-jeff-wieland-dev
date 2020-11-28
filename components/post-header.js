@@ -19,7 +19,7 @@ export default function PostHeader({ title, coverImage, date, author }) {
           src={coverImage.url}
           alt={coverImage.alt}
         ></Image>
-        <Flex bg={bg} color={color} p={5} mb={10} align="center">
+        <Flex bg={bg} borderBottomRadius="6px" color={color} p={5} mt={-2} mb={10} align="center">
           <Text>
             <Date dateString={date} /> by
           </Text>
