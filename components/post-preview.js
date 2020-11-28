@@ -28,13 +28,13 @@ export default function PostPreview({
   return (
     <Box overflow="hidden" borderWidth="1px" borderRadius="4px">
       <Image
-        layout="responsive"
-        height={290}
-        width={580}
+        layout="intrinsic"
+        height={350}
+        width={700}
         src={coverImage.url}
         alt={coverImage.alt}
       ></Image>
-      <Flex bg={bg} color={color} align="center" p={5} mb={5}>
+      <Flex bg={bg} color={color} align="center" p={5} mt={-2} mb={5}>
         <Text>
           <Date dateString={date} /> by
         </Text>
