@@ -13,7 +13,7 @@ export default function PostHeader({ title, coverImage, date, author }) {
       <PostTitle>{title}</PostTitle>
       <Box borderRadius="6px" overflow="hidden">
         <Image
-          layout="responsive"
+          layout="intrinsic"
           height={700}
           width={1400}
           src={coverImage.url}
