@@ -4,7 +4,7 @@ export default function MoreStories({ heading, posts }) {
   return (
     <>
       <Heading mt={10} mb={10}>{heading}</Heading>
-      <SimpleGrid minChildWidth="580px" spacing="20px">
+      <SimpleGrid minChildWidth={{ base: "320px", md: "540px"}} spacing="20px">
         {posts.map((post) => (
           <PostPreview
             key={post.slug}
